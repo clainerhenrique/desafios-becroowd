@@ -4,27 +4,27 @@ int main()
 {
     int N; //NUMERO DE DIAS
     int S; //SALDO NO INICIO DO PERIODO
-    int montante = 0;
-    int contador = 0;
-    int X;
-    int menor;
+    int montante = 0; //MONTANTE INICIA EM ZERO
+    int contador = 0;//CONTADOR PARA REPETIR QUANDOS VEZES VAI ENTRAR VALOR REFERENTE AOS DIAS (N) QUE FOI AO BANCO
+    int X;//VAI SOMAR OU DIMINUIR DO MONTANTE INICIAL (FICA DENTRO DO WHILE E REPETE A QUANTIDADE DE DIAS)
+    int menor;//DECLARAÇÃO DA VARIAVEL PARA GUARDAR MENOR VALOR 
 
-    scanf("%d %d", &N, &S);
-    menor = S;
-    montante = S;
+    scanf("%d %d", &N, &S);//ATRIBUIR DIAS E VALOR INCIAL DA CONTA
+    menor = S;//MENOR VALOR E IGUAL AO VALOR INICIAL ATE NÃO HAVER UM SAQUE 
+    montante = S;//MONTANTE TAMBEM RECEBE VALOR INICIAL ATE NAO RECEBER A PRIMEIRA TRANSACAO 
 
-    while(contador < N)
+    while(contador < N)//ENQUANTO O 'CONTADOR' FOR MENOR QUE 'N' (DIAS IDO AO BANCO)
     {
-        scanf("%d", &X);
-        montante += X;
+        scanf("%d", &X);//VAI RECEBER O VALOR DO SAQUE OU DEPOSITO 'NVEZES' DOS DIAS IDO AO BANCO 
+        montante += X;//VAI SOMAR SE FOR DEPOSITO VAI DESCONTAR SE FOR RETIRADA
         
-        if(montante < menor)
-            menor = montante;
+        if(montante < menor)//SE O MONTANTE FOR DESCONTADO (RETIRADA$), ENTÃO O MONTANTE VAI TER O MENOR VALOR
+            menor = montante;//MENOR VALOR RECEBE MONTANTE PORQUE TEVE UMA RETIRADA
 
-        contador++;
+        contador++;//CONTADOR SOMA UM 
     }
 
-    printf("%d\n", menor);
-
+    printf("%d\n", menor);//PRINTA O MENOR VALOR DO PRIMEIRO SALDO E DO ULTIMO DENTRE AS IDAS AO BANCO
+    //printf("%d\n", montante); //ESSA LINHA MOSTRA O VALOR FINAL EM SUA CONTA
     return 0;
 }
